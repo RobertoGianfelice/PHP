@@ -1,0 +1,44 @@
+<?php 
+	session_start();
+	function myecho($s){
+		$DEBUG=TRUE;
+		if ($DEBUG) {
+			echo $s;
+		}
+	}
+?>
+<html>
+<head><title>Ricerca dati</title></head>
+<body>
+<?php 
+	//Verifico se i dati ci sono
+        if (!isset($_GET["login"]) or  
+            !isset($_GET["password"]) ) {
+                exit("Specificare dati, please");
+        }
+
+	// recupero i dati
+	$login=$_GET["login"];
+	$password=$_GET["password"];
+
+	myecho ("<h1> Questi sono i dati ricevuti</h1>");
+	//Salvo i dati...
+	myecho ("<ul>");
+	myecho ("<li>login=$login</li>");
+	myecho ("<li>password=$password</li>");
+	myecho ("</ul>");
+
+
+	if (isset($_SESSION["utenti"]) and isset($_SESSION["utenti"][$login])) {
+		$passRegistrata=$_SESSION["utenti"][$login];
+		if (password_verify($password, $passRegistrata)) {
+			echo "<p><b>Login effettuato: Bentornato " . $login . " </b></p>";
+		} else {
+			echo "<p><b>Login NON effettuato </b></p>";
+		}
+	} else { 
+		echo "<p><b>Login NON effettuato </b></p>";
+	}
+?>
+</body>
+</html> 
