@@ -43,5 +43,7 @@
 		echo "<p><b>Login NON effettuato </b></p>";
 	}
 ?>
+        <a href="Registro.html">HOME</a>
+
 </body>
 </html> 

@@ -56,6 +56,8 @@
 			print_r($_SESSION);
 		}
 	}
+
 ?>
+        <a href="Registro.html">HOME</a>
 </body>
 </html> 
