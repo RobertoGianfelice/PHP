@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	$DEBUG=FALSE;
+	include "myFunctions.php";
 ?>
 <html>
 <head><title>Registrazione dati</title></head>
@@ -16,13 +16,11 @@
 	$login=$_GET["login"];
 	$password=$_GET["password"];
 
-	if ($DEBUG) {
-		echo "<h1> Questi sono i dati ricevuti</h1>";
-		echo "<ul>";
-		echo "<li>login=$login</li>";
-		echo "<li>password=$password</li>";
-		echo "</ul>";
-	}
+	myecho("<h1> Questi sono i dati ricevuti</h1>");
+	myecho("<ul>");
+	myecho("<li>login=$login</li>");
+	myecho("<li>password=$password</li>");
+	myecho("</ul>");
 		
 	//Verifico se l'array utenti è presente in session. Se non presente, lo creo
 	if (!isset($_SESSION["utenti"])){
@@ -58,6 +56,6 @@
 	}
 
 ?>
-        <a href="Registro.html">HOME</a>
+        </br><a href="Registro.html">HOME</a>
 </body>
 </html> 

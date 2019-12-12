@@ -1,11 +1,6 @@
 <?php 
 	session_start();
-	function myecho($s){
-		$DEBUG=TRUE;
-		if ($DEBUG) {
-			echo $s;
-		}
-	}
+	include "myFunctions.php";
 ?>
 <html>
 <head><title>Ricerca dati</title></head>
@@ -43,7 +38,7 @@
 		echo "<p><b>Login NON effettuato </b></p>";
 	}
 ?>
-        <a href="Registro.html">HOME</a>
+        </br><a href="Registro.html">HOME</a>
 
 </body>
 </html> 

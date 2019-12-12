@@ -9,6 +9,6 @@ session_start();
 	session_unset();
 	echo "<b>Dati cancellati</b>"
 ?>
-	<a href="Registro.html">HOME</a>
+	</br><a href="Registro.html">HOME</a>
 </body>
 </html> 
