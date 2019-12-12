@@ -20,7 +20,8 @@
 	// recupero i dati
 	$login=$_GET["login"];
 	$password=$_GET["password"];
-
+	
+	//Stampo i dati ricevuti
 	myecho ("<h1> Questi sono i dati ricevuti</h1>");
 	//Salvo i dati...
 	myecho ("<ul>");
@@ -28,15 +29,17 @@
 	myecho ("<li>password=$password</li>");
 	myecho ("</ul>");
 
-
+	//Dopo aver verificato che ci siano dati nell'array "utenti", verifico la password
 	if (isset($_SESSION["utenti"]) and isset($_SESSION["utenti"][$login])) {
 		$passRegistrata=$_SESSION["utenti"][$login];
+		//Verifico la password crittografata
 		if (password_verify($password, $passRegistrata)) {
 			echo "<p><b>Login effettuato: Bentornato " . $login . " </b></p>";
 		} else {
 			echo "<p><b>Login NON effettuato </b></p>";
 		}
 	} else { 
+		//Se non ci sono login, sicuramente rifiuto l'accesso senza fornire indicazioni
 		echo "<p><b>Login NON effettuato </b></p>";
 	}
 ?>
