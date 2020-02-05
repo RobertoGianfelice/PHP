@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+<title>Gestione Utenti</title>
+</head>
+
+<body>
+<center><B>REGISTRAZIONE</B></center>
+<form  method="POST" action="registraCompleto.php" 
+       enctype="multipart/form-data" name="Form1">       
+	<p><b>Nome</b>    
+		<input type="text" name="nome" cols="30"       rows="1" size="26">
+	<b>Cognome</b>        
+		<input type="text" name="cognome" cols="30" rows="1" size="28"> 
+	</p> 
+	<p><b>e-mail</b>        
+		<input type="text" name="email" cols="30" rows="1" size="28"> 
+	<b>nick name</b>        
+		<input type="text" name="nick_name" cols="30" rows="1" size="28"> 
+	</p> 
+	<p><b>password</b>        
+		<input type="password" name="password" cols="30" rows="1" size="26">
+	<b>avatar</b>        
+		<input type="file" name="avatar" cols="30" rows="1" size="26">
+	</p>     
+      <hr>
+      <input type="submit"
+      value="Invia" name="B1">
+      <input type="reset" value="Cancella" name="C1"></p>
+</form>
+
+    
+<center><B>CANCELLAZIONE</B></center>
+<form  method="POST" action="cancellaUtenti.php" name="Form1">       
+	<p>
+	<b>Cognome</b>        
+		<input type="text" name="cognome" cols="30" rows="1" size="28"> </p> 
+      <hr>
+      <input type="submit"
+      value="Invia" name="B2">
+      <input type="reset" value="Cancella" name="C2"></p>
+</form>
+
+<center><B>TEST LOGIN</B></center>
+<form  method="POST" action="login.php" name="Form1">
+        <p><b>e-mail</b>
+                <input type="text" name="email" cols="30" rows="1" size="28">
+        <b>password</b>
+                <input type="password" name="password" cols="30"       rows="1" size="26"></p>
+      <hr>
+      <input type="submit"
+      value="Invia" name="B3">
+      <input type="reset" value="Cancella" name="C3"></p>
+</form>
+   
+<a href="elencoUtenti.php">Elenco Utenti</a> 
+</body>
+</html>
