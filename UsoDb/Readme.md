@@ -1,1 +1,1 @@
-Eserici per l'utilizzo di php per manipolare db
+Esercizi per l'utilizzo di php per manipolare db
