@@ -26,9 +26,9 @@
 	//Eseguo la query
 	mysqli_query ($link, $dati)
 	or die ("Non riesco ad eseguire la query $dati");
-  if (mysqli_affected_rows($link)>0) {
+  	if (mysqli_affected_rows($link)>0) {
 		Echo " <CENTER><H1>Eliminato $cognome </H1></CENTER> ";
-  } else {
+ 	} else {
 		Echo " <CENTER><H1>$cognome non presente nell'elenco degli utenti</H1></CENTER> ";
 	}
 	//Chiudo la connessione
