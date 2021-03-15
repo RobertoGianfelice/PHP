@@ -1,13 +1,13 @@
-<?php
+<?php 
 	session_start();
 	include "myFunctions.php";
 ?>
 <html>
 <head><title>Registrazione dati</title></head>
 <body>
-<?php
+<?php 
 	//Verifico se i dati ci sono
-	if ((!isset($_GET["login"]) or ($_GET["login"]=="")) or
+	if ((!isset($_GET["login"]) or ($_GET["login"]=="")) or 
             (!isset($_GET["password"]) or ($_GET["password"]=="")) ) {
 		exit("Specificare dati, please");
 	}
@@ -21,7 +21,7 @@
 	myecho("<li>login=$login</li>");
 	myecho("<li>password=$password</li>");
 	myecho("</ul>");
-
+		
 	//Verifico se l'array utenti è presente in session. Se non presente, lo creo
 	if (!isset($_SESSION["utenti"])){
 		$_SESSION["utenti"]=[];
@@ -58,4 +58,4 @@
 ?>
         </br><a href="Registro.html">HOME</a>
 </body>
-</html>
+</html> 

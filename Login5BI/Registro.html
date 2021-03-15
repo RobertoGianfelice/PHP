@@ -6,36 +6,32 @@
 </head>
 
 <body>
-<center><B>REGISTRAZIONE 5A</B></center>
-<form  method="POST" action="login.php" name="Form1">
+<center><B>REGISTRAZIONE</B></center>
+<form  method="GET" action="login.php" name="Form1">       
 	<fieldset>
 	<legend>Login Utenti</legend>
-	<p><b>Login</b>
+	<p><b>Login</b>    
 		<input type="text" name="login" cols="30"       rows="4" size="26">
-	<b>Password</b>
-		<input type="password" name="password" cols="30" rows="1" size="28"> </p>
+	<b>Passoword</b>        
+		<input type="text" name="password" cols="30" rows="1" size="28"> </p> 
       <hr>
       <input type="submit"
       value="Invia" name="B1">
       <input type="reset" value="Cancella" name="B2"></p>
 	</fieldset>
 </form>
-
-
 <form  method="GET" action="registraDati.php" name="Form2">
         <fieldset>
         <legend>Registra Utente</legend>
         <p><b>Login</b>
-                <input type="text" name="login" cols="30" rows="4" size="26">
+                <input type="text" name="login" cols="30"       rows="4" size="26">
         <p><b>Password</b>
-                <input type="text" name="password" cols="30" rows="4" size="26">
+                <input type="text" name="password" cols="30"       rows="4" size="26">
       <input type="submit"
       value="Registra" name="B2">
       <input type="reset" value="Cancella" name="B2"></p>
         </fieldset>
 </form>
-
-
 <form  method="GET" action="cancellaDati.php" name="Form3">
         <fieldset>
         <legend>Cancella Utenti</legend>
@@ -43,6 +39,6 @@
         </fieldset>
 </form>
 
-
+    
 </body>
 </html>

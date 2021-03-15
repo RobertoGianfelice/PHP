@@ -1,10 +1,13 @@
+<?php   //dati accesso al db
+	//Apro la sessione e...
+	session_start();
+	include "vars.php";
+?>
 <html>
 <head><title>Registrazione dati</title></head>
 <body>
 <H1> Esecuzione del file registrazione</H1><BR>
-<?php 
-//Apro la sessione e...
-session_start();
+<?php
 if (isset($_POST["nome"])){
 
 	// recupero i dati
@@ -20,12 +23,6 @@ if (isset($_POST["nome"])){
 
 	echo "$nome $cognome $email $nick $passw";
 
-	// dati accesso db
-	$db_host= "127.0.0.1:3306";
-	$db_login= "admin";
-	$db_pass= "admin";
-	$database= "dbTest";
-
 	//Salvo i dati...
 	$_SESSION["username"]=$username;
 	$_SESSION["password"]=$password;
@@ -35,20 +32,23 @@ if (isset($_POST["nome"])){
 	    $db_login,
 	    $db_pass,
 	    $database
-	) or die('Error connecting to database');
+	) or die('Attenzione: Error connecting to database');
 
 	$dati= " INSERT INTO utenti VALUES (
-					    '$nome', 
+					    '$nome',
 					    '$cognome',
 					    '$email',
 					    '$nick',
 					    '$password'
-					    );"; 
-	mysqli_query ($link, $dati) 
-	or die ("Non riesco ad eseguire la query $dati"); 
+					    );";
+	mysqli_query ($link, $dati)
+	or die ("Non riesco ad eseguire la query $dati");
 	echo " <CENTER><H1>$nome $cognome <BR><H3>I Dati sono stati archiviati con successo nel DataBase </CENTER> ";
-	mysqli_close ($link); 
-}	 
+	mysqli_close ($link);
+}
 ?>
+<br>
+<a href="gestioneUtentiFull.html">Torna alla pagina home</a>
+
 </body>
-</html> 
+</html>

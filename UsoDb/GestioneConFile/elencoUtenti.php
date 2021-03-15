@@ -1,28 +1,28 @@
 <html>
 <head><title>Registrazione dati</title></head>
 <body>
-<?php   
+<?php
 	//Include i dati di accesso a dbms e db
 	include 'vars.php';
 ?>
 <H1> Esecuzione del file registrazione</H1><BR>
-<?php 
+<?php
 	//Connessione al DB
 	echo "<p>connetto al db...</p>";
-	$link=mysqli_connect( "$db_host", "$db_login","$db_pass") 
-	or die ("Non riesco a connettermi a <b>$db_host"); 
+	$link=mysqli_connect( "$db_host", "$db_login","$db_pass")
+	or die ("Non riesco a connettermi a <b>$db_host");
 
 	//Selezione il DB da utilizzare
-	mysqli_select_db ($link, $database) 
-	or die ("Non riesco a selezionare il db $database<br>"); 
+	mysqli_select_db ($link, $database)
+	or die ("Non riesco a selezionare il db $database<br>");
 
 	//Preparo la Query
-	$dati= " SELECT nome, cognome, avatar
-                 from utenti"; 
+	$dati= " SELECT nome, cognome, nomeImg
+                 from utenti";
 
 	//Eseguo la query
-	$rs=mysqli_query ($link, $dati) 
-	or die ("Non riesco ad eseguire la query $dati"); 
+	$rs=mysqli_query ($link, $dati)
+	or die ("Non riesco ad eseguire la query $dati");
 
 	//Recupero il numero di righe nel cursore del risultato
 	$nr = mysqli_num_rows($rs);
@@ -39,8 +39,8 @@
 	      echo "<tr>";
 	        echo "<td>" . $row['nome'] . "</td>";
 	        echo "<td>" . $row['cognome'] . "</td>";
-		if ($row['avatar']!=NULL) {
-		echo "<td><img src=\"Images/" . $row['avatar'] . "\" height=\"100\"></td>";
+		if ($row['nomeImg']!=NULL) {
+		echo "<td><img src=\"Images/" . $row['nomeImg'] . "\" height=\"100\"></td>";
 		} else {
 		echo "<td> no image </td>";
 		}
@@ -53,10 +53,10 @@
 	}
 
 	//Chiudo la connessione
-	mysqli_close ($link); 
-	 
+	mysqli_close ($link);
+
 ?>
 <br>
 <a href="gestioneUtenti.html">Torna alla pagina home</a>
 </body>
-</html> 
+</html>

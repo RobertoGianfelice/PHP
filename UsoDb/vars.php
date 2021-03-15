@@ -1,8 +1,7 @@
-<?php   
+<?php
 	//dati accesso al db
         $db_host= "localhost";
-        $db_login= "rob";
-        $db_pass= "rob";
-        $database= "db2020";
+        $db_login= "admin";
+        $db_pass= "admin";
+        $database= "QuintoB";
 ?>
-

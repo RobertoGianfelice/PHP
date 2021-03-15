@@ -1,21 +1,21 @@
-<?php
+<?php 
 	session_start();
 	include "myFunctions.php";
 ?>
 <html>
 <head><title>Ricerca dati</title></head>
 <body>
-<?php
+<?php 
 	//Verifico se i dati ci sono
-        if (!isset($_REQUEST["login"]) or
-            !isset($_REQUEST["password"]) ) {
+        if (!isset($_GET["login"]) or  
+            !isset($_GET["password"]) ) {
                 exit("Specificare dati, please");
         }
 
 	// recupero i dati
-	$login=$_REQUEST["login"];
-	$password=$_REQUEST["password"];
-
+	$login=$_GET["login"];
+	$password=$_GET["password"];
+	
 	//Stampo i dati ricevuti
 	myecho ("<h1> Questi sono i dati ricevuti</h1>");
 	//Salvo i dati...
@@ -33,7 +33,7 @@
 		} else {
 			echo "<p><b>Login NON effettuato </b></p>";
 		}
-	} else {
+	} else { 
 		//Se non ci sono login, sicuramente rifiuto l'accesso senza fornire indicazioni
 		echo "<p><b>Login NON effettuato </b></p>";
 	}
@@ -41,4 +41,4 @@
         </br><a href="Registro.html">HOME</a>
 
 </body>
-</html>
+</html> 
