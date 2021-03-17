@@ -40,7 +40,7 @@
 	        echo "<td>" . $row['nome'] . "</td>";
 	        echo "<td>" . $row['cognome'] . "</td>";
 		if ($row['nomeImg']!=NULL) {
-		echo "<td><img src=\"Images/" . $row['nomeImg'] . "\" height=\"100\"></td>";
+		echo "<td><img src=\"../Images/" . $row['nomeImg'] . "\" height=\"100\"></td>";
 		} else {
 		echo "<td> no image </td>";
 		}

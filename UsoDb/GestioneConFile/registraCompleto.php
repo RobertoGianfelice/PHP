@@ -10,7 +10,7 @@
 	session_start();
 
 # Definizioni costanti di lavoro
-define('DIR_IMG', 'Images');
+define('DIR_IMG', '../Images');
 
 #funzione per verificare la validità del file
 function checkFile($fileName) {

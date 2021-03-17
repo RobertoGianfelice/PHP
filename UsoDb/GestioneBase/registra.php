@@ -48,7 +48,7 @@ if (isset($_POST["nome"])){
 }
 ?>
 <br>
-<a href="gestioneUtentiFull.html">Torna alla pagina home</a>
+<a href="gestioneUtentiBase.html">Torna alla pagina home</a>
 
 </body>
 </html>
