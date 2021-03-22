@@ -31,22 +31,22 @@
 	  //Preparo la struttura della tabella
           echo "<H1 style=\"font-size: 200%; color:blue;text-align:center\">Utenti registrati </H1><BR>";
 
-          echo "<table border=1>";
+      echo "<table border=1>";
 	    echo "  <th>Nome</th><th>Cognome</th><th>Avatar</th>";
 	    //Ciclo sul risultato e costruisco le tr della tabella
 	    for($x = 0; $x < $nr; $x++){
-	      $row = mysqli_fetch_assoc($rs);
-	      echo "<tr>";
+	      	$row = mysqli_fetch_assoc($rs);
+	      	echo "<tr>";
 	        echo "<td>" . $row['nome'] . "</td>";
 	        echo "<td>" . $row['cognome'] . "</td>";
-		if ($row['nomeImg']!=NULL) {
-		echo "<td><img src=\"../Images/" . $row['nomeImg'] . "\" height=\"100\"></td>";
-		} else {
-		echo "<td> no image </td>";
-		}
+					if ($row['nomeImg']!=NULL) {
+							echo "<td><img src=\"../Images/" . $row['nomeImg'] . "\" height=\"100\"></td>";
+					} else {
+						echo "<td> nessuna immagine </td>";
+					}
 	      echo "</tr>";
 	    }
-          echo "</table>";
+      echo "</table>";
 
         }else{  //La tabella è vuota
           echo "Nessun record trovato!";

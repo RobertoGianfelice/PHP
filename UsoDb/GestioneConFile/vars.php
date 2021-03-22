@@ -3,5 +3,5 @@
         $db_host= "localhost";
         $db_login= "admin";
         $db_pass= "admin";
-        $database= "QuintoB";
+        $database= "db2021";
 ?>
