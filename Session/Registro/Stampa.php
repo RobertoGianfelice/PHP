@@ -9,13 +9,16 @@
   </head>
   <body>
     <?php
-      if (count($_SESSION)>0) {
+      if (isset($_SESSION["Voti"])>0) {
+      // Il registro voti esiste: lo stampo
       echo "<table border=1 width=30%>";
+      // Tabella principale: una riga per ogni nome
       foreach ($_SESSION["Voti"] as $nome => $voti) {
         echo "<tr>";
         echo "<td>" . $nome . "</td>";
         echo "<td>";
         echo "<table border=1 width=100%>";
+        // Tabella secondaria: una riga per ogni votazione del nome in esame
         foreach ($voti as $materia => $voto) {
           echo "<tr>";
           echo "<td>" . $materia . "</td>";
