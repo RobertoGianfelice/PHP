@@ -5,6 +5,14 @@
 <html>
   <head>
     <title>Stampa Registro</title>
+    <style media="screen">
+      #pari{
+        background-color:red;
+      }
+      #dispari{
+        background-color:gray;
+      }
+    </style>
   </head>
   <body>
     <?php
@@ -12,11 +20,17 @@
       // Il registro voti esiste: lo stampo
       echo "<table border=1 width=30%>";
       // Tabella principale: una riga per ogni nome
+      $riga=1;
       foreach ($_SESSION as $nome => $voto) {
-        echo "<tr>";
-        echo "<td>" . $nome . "</td>";
-        echo "<td>" . $voto . "</td>";
+        if ($riga%2==0) {
+          echo "<tr id=\"pari\">";
+        } else {
+          echo "<tr id=\"dispari\">";
+        }
+          echo "<td>" . $nome . "</td>";
+          echo "<td>" . $voto . "</td>";
         echo "</tr>";
+        $riga+=1;
       }
       echo "</table>";
     } else {
