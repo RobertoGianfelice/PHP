@@ -5,22 +5,26 @@
   <body>
     <?php
       //Acquisico i dati parametri di input
-      $nome=$_GET["nome"];
-      $voto = $_GET["voto"];
-
-
-      if (!isset($_SESSION[$nome])) {
-        // Il campo $nome non esiste all'interno di voti: lo creo
-        echo "Aggiungo il voto <br>";
+      if (!isset($_GET["nome"]) || $_GET["nome"]=="" ||
+          !isset($_GET["voto"]) || $_GET["voto"]=="" ) {
+        echo "<h2>Dati di input mancanti </h2>";
       } else {
-        echo "Aggiorno il voto <br>";
-      }
+        $nome=$_GET["nome"];
+        $voto = $_GET["voto"];
 
-      // Inserisco la nuova votazione nella SESSION relativa a $nome
-      $_SESSION[$nome]=$voto;
-      echo "Aggiungo il voto <br>";
+        if (!isset($_SESSION[$nome])) {
+          // Il campo $nome non esiste all'interno di voti: lo creo
+          echo "Aggiungo il voto <br>";
+        } else {
+          echo "Aggiorno il voto <br>";
+        }
 
-      print_r($_SESSION);
+        // Inserisco la nuova votazione nella SESSION relativa a $nome
+        $_SESSION[$nome]=$voto;
+        echo "Aggiunto il voto <br>";
+
+        print_r($_SESSION);
+    }
     ?>
     <br>
     <h2><a href="RegistroVotiBase.html">HOME</a></h2>
