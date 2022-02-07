@@ -6,10 +6,10 @@
   <head>
     <title>Stampa Registro</title>
     <style media="screen">
-      #pari{
+      .pari{
         background-color:red;
       }
-      #dispari{
+      .dispari{
         background-color:gray;
       }
     </style>
@@ -23,9 +23,9 @@
       $riga=1;
       foreach ($_SESSION as $nome => $voto) {
         if ($riga%2==0) {
-          echo "<tr id=\"pari\">";
+          echo "<tr class=\"pari\">";
         } else {
-          echo "<tr id=\"dispari\">";
+          echo "<tr class=\"dispari\">";
         }
           echo "<td>" . $nome . "</td>";
           echo "<td>" . $voto . "</td>";
