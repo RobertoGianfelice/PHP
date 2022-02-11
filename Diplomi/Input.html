@@ -1,10 +1,45 @@
 <!DOCTYPE HTML>
 <html>
+<head>
+  <style>
+  h1{
+    color:blue;
+    text-align: center;
+  }
+  #anagrafica {
+    background-color: red;
+    border: 1px solid #FF0000;
+    height: 200px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .content {
+    background: #25FF00;
+    display:table-cell;
+    vertical-align:middle;
+    font-size: 40px;
+  }
+  #bottone{
+    font-size: 40px;
+    color:red;
+    display: block;
+    margin: 50px auto;
+  }
+
+  </style>
+</head>
 <body>
-<h1 style="color:blue;">Caccia ai tesori nascosti della città</h1>
-<form action="generaDiploma.php" method="POST">
-  Nome: <input type="text" name="nome"><br>
-  Cognome: <input type="text" name="cognome"><br>
-<input type="submit" value="Genera Premio!">
-</form>
+<h1 style="color:blue;">Caccia ai tesori nascosti della citta'</h1>
+<div id="anagrafica">
+  <div class="content">
+    <form action="generaDiploma.php" method="POST">
+      Nome: <input class="content" type="text" name="nome" size="32"><br>
+      Cognome: <input class="content" type="text" name="cognome" size="30"><br>
+    <input class="content" id="bottone" type="submit" value="Genera Premio!">
+    </form>
+  </div>
+</div>
+
+
 </body>
