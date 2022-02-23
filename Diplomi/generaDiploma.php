@@ -1,7 +1,9 @@
 <?php
 
-$fontPath= $_SERVER["DOCUMENT_ROOT"] . '/gianfelice/font/';
-$fpdfPath=$_SERVER["DOCUMENT_ROOT"]  . '/gianfelice/fpdf.php';
+//$fontPath= $_SERVER["DOCUMENT_ROOT"] . '/gianfelice/font/';
+//$fpdfPath=$_SERVER["DOCUMENT_ROOT"]  . '/gianfelice/fpdf.php';
+$fontPath= $_SERVER["DOCUMENT_ROOT"] . '/font/';
+$fpdfPath=$_SERVER["DOCUMENT_ROOT"]  . '/fpdf.php';
 // dichiarare il percorso dei font
 define('FPDF_FONTPATH',$fontPath);
 //questo file e la cartella font si trovano nella stessa directory
@@ -13,7 +15,8 @@ class PDF extends FPDF
   function Header()
   {
       // Logo
-      $this->Image('diploma.png',10,6,280);
+      //$this->Image('diploma.png',10,6,280);
+      $this->Image('Diploma_PCTOCacciaAiTesoriNascosti.png',10,6,280);
   }
   function dataInItaliano()
   {
@@ -32,8 +35,8 @@ class PDF extends FPDF
   {
       // Line break
       $this->Ln(20);
-      $this->SetY(155);
-      $this->SetX(65);
+      $this->SetY(136);
+      $this->SetX(105);
       // Arial italic 8
       $this->SetFont('Arial','I',18);
       // Ricavo la data in italiano
@@ -53,7 +56,7 @@ if (!isset($_REQUEST["nome"]) or $_REQUEST["nome"]=="" or
   $pdf = new PDF('L','mm','A4');
   $pdf->AddPage();
   $pdf->SetFont('Times','',24);
-  $pdf->SetY(96);
+  $pdf->SetY(80);
   $pdf->SetX(10);
   $pdf->SetTextColor(53,68,101);
 
