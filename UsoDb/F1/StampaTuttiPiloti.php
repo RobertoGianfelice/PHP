@@ -42,7 +42,7 @@
     	  //Preparo la struttura della tabella
           echo "<H1 style=\"font-size: 200%; color:blue;text-align:center\">DATI MURETTO </H1><BR>";
           echo "<table border=1>";
-          echo "<tr><th>nickPilota</th><th>throttle</th><th>resaGomme</th><th>fuel</th><th>powerOnLap</th><th>boxboxbox</th></tr>";
+          echo "<tr><th>nickPilota</th><th>throttle</th><th>resaGomme</th><th>fuel</th><th>powerOnLap</th><th>boxboxbox</th><td>tyre</td></tr>";
           for($x = 0; $x < $nr; $x++){
             $row = mysqli_fetch_assoc($rs);
               echo "<tr>";
@@ -51,7 +51,8 @@
                      "<td>" , $row['resaGomme'], "</td>",
                      "<td>" , $row['fuel'], "</td>",
                      "<td>" , $row['powerOnLap'], "</td>",
-                     "<td>" , $row['boxboxbox'], "</td>";
+                     "<td>" , $row['boxboxbox'], "</td>",
+                     "<td>" , $row['tyre'], "</td>";
               echo "</tr>";
               $options=$options . "<option value=" . $row['nickPilota'] . ">" . $row['nickPilota'] . "</option>";
           }

@@ -63,16 +63,17 @@
     	  //Preparo la struttura della tabella
           echo "<H1 style=\"font-size: 200%; color:blue;text-align:center\">SETUP MACCHINA $nickPilota</H1><BR>";
           echo "<table border=1>";
-          echo "<tr><th>nickPilota</th><th>throttle</th><th>resaGomme</th><th>fuel</th><th>powerOnLap</th><th>boxboxbox</th></tr>";
+          echo "<tr><th>nickPilota</th><th>throttle</th><th>resaGomme</th><th>fuel</th><th>powerOnLap</th><th>boxboxbox</th><th>tyre</td></tr>";
           for($x = 0; $x < $nr; $x++){
             $row = mysqli_fetch_assoc($rs);
-              echo "<tr>";
-                echo "<td>" , $row['nickPilota'], "</td>",
+              echo "<tr>",
+                    "<td>" , $row['nickPilota'], "</td>",
                      "<td>" , $row['throttle'], "</td>",
                      "<td>" , $row['resaGomme'], "</td>",
                      "<td>" , $row['fuel'], "</td>",
                      "<td>" , $row['powerOnLap'], "</td>",
-                     "<td>" , $row['boxboxbox'], "</td>";
+                     "<td>" , $row['boxboxbox'], "</td>",
+                     "<td>" , $row['tyre'], "</td>";
               echo "</tr>";
           }
           echo "</table>";
