@@ -9,7 +9,7 @@
   </head>
   <body>
     <?php
-      //Connessione al DB
+      //Connessione al DB dd
     	$link=mysqli_connect(
         "$db_host",
         "$db_login",
