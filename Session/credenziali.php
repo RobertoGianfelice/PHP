@@ -8,11 +8,20 @@
   </head>
   <body>
       <?php
-      print("<h2>roberto</h2>");
         if (isset($_SESSION["nome"])) {
           echo " <h1> L'utente attualmente collegato e' " .
                 $_SESSION["nome"] . "</h1>";
-          echo "<a href=\"" . $_SESSION["nome"] . ".html\">Vai alla pagina di " . $_SESSION["nome"] ."</a>";
+          switch ($_SESSION["nome"]) {
+            case "Harry":
+            case "Hermione":
+            case "Ron":
+              echo "Utente conosciuto";
+              echo "<a href=\"" . $_SESSION["nome"] . ".html\">Vai alla pagina di " . $_SESSION["nome"] ."</a>";
+              break;
+            default:
+              echo "Utente sconosciuto<br>";
+              echo "<a href=\"input.html\"> Riprova </a>";
+            }
         } else{
           echo "<h1>Attualmente non c'e' nessun utente collegato </h1>";
         }
