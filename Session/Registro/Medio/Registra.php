@@ -10,15 +10,7 @@
       $materia = $_GET["materia"];
       $voto = $_GET["voto"];
 
-
-      if (!isset($_SESSION[$classe])) {
-        // Il campo $nome non esiste all'interno di voti: lo creo
-        echo "Creo " . $classe . "<br>";
-      } else {
-        echo "Aggiungo il voto in " . $classe . "<br>";
-      }
-
-      $_SESSION[$classe][$nome][$materia]=$voto;
+      $_SESSION[$nome][$materia]=$voto;
       echo "<br>Voto Inserito nel registro di ". $nome . "<br>";
       print_r($_SESSION);
     ?>
