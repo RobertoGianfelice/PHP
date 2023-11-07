@@ -5,7 +5,6 @@
   <body>
     <?php
       //Acquisico i dati parametri di input
-      $classe=$_GET["classe"];
       $nome=$_GET["nome"];
       $materia = $_GET["materia"];
       $voto = $_GET["voto"];
