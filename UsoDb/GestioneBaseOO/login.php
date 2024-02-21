@@ -17,7 +17,7 @@
 	$conn = new mysqli($db_host, $db_login, $db_pass, $database);
 	// Check connection
 	if ($conn->connect_error ) {
-		die ("PRoblemi di connessione a $db_host " . $conn->connect_error);
+		die ("Problemi di connessione a $db_host " . $conn->connect_error);
 	}
 	//Preparo la Query
 	$dati= "SELECT nome
@@ -38,7 +38,6 @@
     }else{  //La tabella è vuota
         echo "Credenziali di accesso errate ";
 	}
-
 	//Chiudo la connessione
 	$conn->close();
 
