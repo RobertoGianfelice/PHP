@@ -1,6 +1,4 @@
 <?php   //dati accesso al db
-	//Apro la sessione e...
-	session_start();
 	include "vars.php";
 ?>
 <html>
@@ -22,17 +20,11 @@ if (isset($_POST["nome"])){
 	$password=md5($_POST["password"]);
 
 	echo "$nome $cognome $email $nick $passw";
-
-	//Salvo i dati...
-	$_SESSION["username"]=$username;
-	$_SESSION["password"]=$password;
-
-	$link=mysqli_connect(
-	    $db_host,
-	    $db_login,
-	    $db_pass,
-	    $database
-	) or die('Attenzione: Error connecting to database');
+	$conn = new mysqli($db_host, $db_login, $db_pass, $database);
+	// Check connection
+	if ($conn->connect_error ) {
+		die ("PRoblemi di connessione a $db_host " . $conn->connect_error);
+	}
 
 	$dati= " INSERT INTO utenti (nome, cognome, email, nick_name, password) 
 	                    VALUES (
@@ -42,10 +34,12 @@ if (isset($_POST["nome"])){
 					    '$nick',
 					    '$password'
 					    );";
-	mysqli_query ($link, $dati)
-	or die ("Non riesco ad eseguire la query $dati");
+	$rs =  $conn->query ($dati);
+	if ($conn->connect_error) {
+		die ("Problemi nell'eseguire la quesry $dati " . $conn->connect_error);
+	}
 	echo " <CENTER><H1>$nome $cognome <BR><H3>I Dati sono stati archiviati con successo nel DataBase </CENTER> ";
-	mysqli_close ($link);
+	$conn->close();
 }
 ?>
 <br>

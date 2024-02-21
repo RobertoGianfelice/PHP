@@ -9,23 +9,24 @@
 <?php
 	//Connessione al DB
 	echo "<p>connetto al db...</p>";
-	$link=mysqli_connect( "$db_host", "$db_login","$db_pass")
-	or die ("Non riesco a connettermi a <b>$db_host");
-
-	//Selezione il DB da utilizzare
-	mysqli_select_db ($link, $database)
-	or die ("Non riesco a selezionare il db $database<br>");
+	$conn = new mysqli($db_host, $db_login, $db_pass, $database);
+	// Check connection
+	if ($conn->connect_error ) {
+		die ("PRoblemi di connessione a $db_host " . $conn->connect_error);
+	}
 
 	//Preparo la Query
 	$dati= " SELECT nome, cognome, nick_name
                  from utenti";
 
 	//Eseguo la query
-	$rs=mysqli_query ($link, $dati)
-	or die ("Non riesco ad eseguire la query $dati");
+	$rs=$conn->query ($dati);
+	if ($conn->connect_error) {
+		die ("Problemi nell'eseguire la quesry $dati " . $conn->connect_error);
+	}
 
 	//Recupero il numero di righe nel cursore del risultato
-	$nr = mysqli_num_rows($rs);
+	$nr = $rs->num_rows;
 
   if ($nr != 0){    //Ci sono delle righe nella tabella
 	  //Preparo la struttura della tabella
@@ -35,7 +36,7 @@
 	    echo "  <th>Nome</th><th>Cognome</th><th>Nick</th>";
 	    //Ciclo sul risultato e costruisco le tr della tabella
 	    for($x = 0; $x < $nr; $x++){
-	      $row = mysqli_fetch_assoc($rs);
+	      $row = $rs->fetch_assoc(); 
 	      echo "<tr>";
 	        echo "<td>" . $row['nome'] . "</td>";
 	        echo "<td>" . $row['cognome'] . "</td>";
@@ -49,7 +50,7 @@
 	}
 
 	//Chiudo la connessione
-	mysqli_close ($link);
+	$conn->close();
 
 ?>
 <br>
