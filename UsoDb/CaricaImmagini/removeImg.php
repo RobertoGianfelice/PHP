@@ -14,6 +14,7 @@
     ?>
     <h1>Cancellazione Immagine</h1>
     <?php
+    
     if (isset($_GET["toBeRemoved"]) and $_GET["toBeRemoved"] != "") {
         $fileToRemove = $_GET["toBeRemoved"];
         echo "<p>connetto al db...</p>";
