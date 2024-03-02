@@ -3,5 +3,8 @@
         $db_host= "localhost";
         $db_login= "rob1";
         $db_pass= "rob1";
-        $database= "prova";
+        $database= "album";
+
+        define('DIR_IMG', 'Images');
+
 ?>

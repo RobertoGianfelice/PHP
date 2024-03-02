@@ -15,10 +15,9 @@
 <body>
     <?php   //dati accesso al db
     include "vars.php";
+    include "notificheUtente.php";
     ?>
     <?php
-    define('DIR_IMG', 'Images');
-
     //Connessione al DB
     echo "<p>connetto al db...</p>";
     $conn = new mysqli($db_host, $db_login, $db_pass, $database);
@@ -29,7 +28,7 @@
 
     //Preparo la Query
     $dati = "SELECT *
-            from immagini";
+            from images";
 
     //Eseguo la query
     $rs = $conn->query($dati);
@@ -45,12 +44,13 @@
         echo "<H1 style=\"font-size: 200%; color:blue;text-align:center\">Immagini registrate </H1><BR>";
 
         echo "<table border=1>";
-        echo "  <th>Nome File</th>";
+        echo "  <th>Nome File</th><th>Azione</th>";
         //Ciclo sul risultato e costruisco le tr della tabella
         for ($x = 0; $x < $nr; $x++) {
             $row = $rs->fetch_assoc();
             echo "<tr>";
-            echo "<td><img onclick=\"ingrandisci(this.src)\" src=\"" . DIR_IMG . "/" . $row['nomeFile'] . "\" width=\"120px\"></td>";
+            echo "<td><img onclick=\"ingrandisci(this.src)\" src=\"" . DIR_IMG . "/" . $row['immagine'] . "\" width=\"120px\"></td>";
+            echo "<td><a href=\"removeImg.php?toBeRemoved=" . $row['immagine'] . "\">Rimuovi Dal DB</a></td>";
             echo "</tr>";
         }
         echo "</table>";

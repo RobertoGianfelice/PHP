@@ -11,9 +11,6 @@
     ?>
     <H1> Memorizzo il file sul server</H1><BR>
     <?php
-    # Definizioni costanti di lavoro
-    define('DIR_IMG', 'Images');
-
     #funzione per verificare la validità del file
     # e se tutto corretto salvare il file nella directory del server
     function checkFileAndSave($fileName)
@@ -63,7 +60,7 @@
             or die("Non riesco a connettermi al db $database su <b>$db_host");
 
         //Preparo la Query
-        $dati = " INSERT INTO immagini VALUES (
+        $dati = " INSERT INTO images VALUES (
 					    '$nomeImg');";
         //Eseguo la query
         mysqli_query($link, $dati)
