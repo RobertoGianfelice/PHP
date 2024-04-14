@@ -9,7 +9,7 @@
   <H1> Pubblica file sostituzioni</H1><BR>
 
   <?php
-  if ($_POST["password"] != "Antipresidenza") {
+  if ($_POST["password"] != "xxxxxxxx") {
     echo "Password Errata";
     echo "<br><a href='index.html'>Torna alla pagina di caricamento</a>";
     die;
