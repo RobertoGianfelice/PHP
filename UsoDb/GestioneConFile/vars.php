@@ -1,7 +1,10 @@
 <?php
 	//dati accesso al db
         $db_host= "localhost";
-        $db_login= "admin";
-        $db_pass= "admin";
-        $database= "db2021";
+        $db_login= "esercizi";
+        $db_pass= "esercizi";
+        $database= "album";
+        
+        # Definizioni costanti di lavoro
+	define('DIR_IMG', '../Images');
 ?>

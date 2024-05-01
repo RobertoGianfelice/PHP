@@ -49,8 +49,8 @@
         for ($x = 0; $x < $nr; $x++) {
             $row = $rs->fetch_assoc();
             echo "<tr>";
-            echo "<td><img onclick=\"ingrandisci(this.src)\" src=\"" . DIR_IMG . "/" . $row['immagine'] . "\" width=\"120px\"></td>";
-            echo "<td><a href=\"removeImg.php?toBeRemoved=" . $row['immagine'] . "\">Rimuovi Dal DB</a></td>";
+            echo "<td><img onclick=\"ingrandisci(this.src)\" src=\"" . DIR_IMG . "/" . $row['image'] . "\" width=\"120px\"></td>";
+            echo "<td><a href=\"removeImg.php?img2BeRemoved=" . $row['image'] . "&id2BeRemoved=" . $row["id"] . "\">Rimuovi Dal DB</a></td>";
             echo "</tr>";
         }
         echo "</table>";

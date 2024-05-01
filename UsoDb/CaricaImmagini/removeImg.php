@@ -15,15 +15,17 @@
     <h1>Cancellazione Immagine</h1>
     <?php
     
-    if (isset($_GET["toBeRemoved"]) and $_GET["toBeRemoved"] != "") {
-        $fileToRemove = $_GET["toBeRemoved"];
+    if (isset($_GET["img2BeRemoved"]) and $_GET["img2BeRemoved"] != "" and
+         isset($_GET["id2BeRemoved"]) and $_GET["id2BeRemoved"] != "") {
+        $fileToRemove = $_GET["img2BeRemoved"];
+        $idToRemove = $_GET["id2BeRemoved"];
         echo "<p>connetto al db...</p>";
         $link = mysqli_connect("$db_host", "$db_login", "$db_pass", $database)
             or die("Non riesco a connettermi al db $database su <b>$db_host");
 
         //Preparo la Query
         $dati = " DELETE FROM images 
-                  WHERE immagine='$fileToRemove';";
+                  WHERE id='$idToRemove';";
         //Eseguo la query
         mysqli_query($link, $dati)
             or die("Non riesco ad eseguire la query $dati" . mysqli_error($link));

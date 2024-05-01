@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mar 02, 2024 alle 17:54
--- Versione del server: 10.4.21-MariaDB
--- Versione PHP: 7.4.28
+-- Creato il: Mag 01, 2024 alle 11:17
+-- Versione del server: 10.1.40-MariaDB
+-- Versione PHP: 7.1.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `album`
 --
-CREATE DATABASE IF NOT EXISTS `album` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `album`;
 
 -- --------------------------------------------------------
 
@@ -29,22 +28,26 @@ USE `album`;
 -- Struttura della tabella `images`
 --
 
-DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
-  `immagine` varchar(100) NOT NULL
+  `id` int(11) NOT NULL,
+  `image` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Svuota la tabella prima dell'inserimento `images`
+-- Struttura della tabella `utenti`
 --
 
-TRUNCATE TABLE `images`;
---
--- Dump dei dati per la tabella `images`
---
-
-INSERT INTO `images` (`immagine`) VALUES
-('image.jpg');
+CREATE TABLE `utenti` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `cognome` varchar(50) NOT NULL,
+  `nick` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `image` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indici per le tabelle scaricate
@@ -54,7 +57,29 @@ INSERT INTO `images` (`immagine`) VALUES
 -- Indici per le tabelle `images`
 --
 ALTER TABLE `images`
-  ADD PRIMARY KEY (`immagine`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `utenti`
+--
+ALTER TABLE `utenti`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT per la tabella `utenti`
+--
+ALTER TABLE `utenti`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

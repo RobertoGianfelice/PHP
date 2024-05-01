@@ -25,6 +25,7 @@
             # verifica errori di upload
             if ($_FILES["$fileName"]["error"] > 0) {
                 echo "Return Code: " . $_FILES["$fileName"]["error"] . "<br />";
+                return 0;
             } else {
                 #procedura di salvataggio
                 echo "</br>----------</br>Upload: " . $_FILES["$fileName"]["name"] . "<br />";
@@ -34,42 +35,48 @@
                 echo "</br>----------</br>";
 
                 # verifica esistenza del file nella direcory del server per evitare sovrascritture
-                if (file_exists(DIR_IMG . $_FILES["$fileName"]["name"])) {
-                    echo $_FILES["$fileName"]["name"] . " already exists. ";
+                if (file_exists(DIR_IMG . "/" . $_FILES["$fileName"]["name"])) {
+                    notifyToUser( $_FILES["$fileName"]["name"] . " already exists. ");
+                    return 0;
                 } else {
                     move_uploaded_file(
                         $_FILES["$fileName"]["tmp_name"],
                         DIR_IMG . "/" . $_FILES["$fileName"]["name"]
                     );
-                    notifyToUser( "New Stored in: " . DIR_IMG . "/" . $_FILES["$fileName"]["name"]);
+                    notifyToUser( "New Stored in: " . DIR_IMG . "/" . $_FILES["$fileName"]["name"]);               
+                    return 1;
                 }
             }
         } else {
             notifyToUser( "Invalid file");
+            return 0;
         }
     }
 
     if (isset($_FILES["toBeUploaded"]) and $_FILES["toBeUploaded"]["name"] != "") {
-        checkFileAndSave("toBeUploaded");
-        $nomeImg = $_FILES["toBeUploaded"]["name"];
+        if (checkFileAndSave("toBeUploaded"))  {
+            $nomeImg = $_FILES["toBeUploaded"]["name"];
 
 
-        //Connessione al DB
-        echo "<p>connetto al db...</p>";
-        $link = mysqli_connect("$db_host", "$db_login", "$db_pass", $database)
-            or die("Non riesco a connettermi al db $database su <b>$db_host");
+            //Connessione al DB
+            echo "<p>connetto al db...</p>";
+            $link = mysqli_connect("$db_host", "$db_login", "$db_pass", $database)
+                or die("Non riesco a connettermi al db $database su <b>$db_host");
 
-        //Preparo la Query
-        $dati = " INSERT INTO images VALUES (
-					    '$nomeImg');";
-        //Eseguo la query
-        mysqli_query($link, $dati)
-            or die("Non riesco ad eseguire la query $dati" . mysqli_error($link));
+            //Preparo la Query
+            $dati = " INSERT INTO images VALUES (NULL,
+                            '$nomeImg');";
+            //Eseguo la query
+            mysqli_query($link, $dati)
+                or die("Non riesco ad eseguire la query $dati" . mysqli_error($link));
 
-        notifyToUser( " <CENTER><H1>Immagine archiviata con successo </CENTER> ");
+            notifyToUser( " <CENTER><H1>Immagine archiviata con successo </CENTER> ");
 
-        //Chiudo la connessione
-        mysqli_close($link);
+            //Chiudo la connessione
+            mysqli_close($link);
+        } else {
+            notifyToUser("Problemi di caricamento");
+        }
     } else {
         notifyToUser( "Nome file non specificato. Non è stata carica alcuna immagine nel db");
     }

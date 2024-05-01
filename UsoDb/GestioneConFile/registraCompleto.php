@@ -9,8 +9,7 @@
 	//Apro la sessione php...
 	session_start();
 
-	# Definizioni costanti di lavoro
-	define('DIR_IMG', '../Images');
+
 
 	#funzione per verificare la validità del file
 	# e se tutto corretto salvare il file nella directory del server
@@ -71,7 +70,7 @@
 		or die ("Non riesco a selezionare il db $database<br>");
 
 	//Preparo la Query
-	$dati= " INSERT INTO utenti VALUES ('$nome',
+	$dati= " INSERT INTO utenti VALUES (NULL,'$nome',
 					    '$cognome',
 					    '$nick_name',
 					    '$email',

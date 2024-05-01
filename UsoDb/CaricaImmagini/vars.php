@@ -1,10 +1,10 @@
 <?php
 	//dati accesso al db
         $db_host= "localhost";
-        $db_login= "rob1";
-        $db_pass= "rob1";
+        $db_login= "esercizi";
+        $db_pass= "esercizi";
         $database= "album";
 
-        define('DIR_IMG', 'Images');
+        define('DIR_IMG', '../Images');
 
 ?>

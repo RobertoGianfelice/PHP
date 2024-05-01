@@ -17,7 +17,7 @@
 	or die ("Non riesco a selezionare il db $database<br>");
 
 	//Preparo la Query
-	$dati= " SELECT nome, cognome, nomeImg
+	$dati= " SELECT nome, cognome, image
                  from utenti";
 
 	//Eseguo la query
@@ -39,8 +39,8 @@
 	      	echo "<tr>";
 	        echo "<td>" . $row['nome'] . "</td>";
 	        echo "<td>" . $row['cognome'] . "</td>";
-					if ($row['nomeImg']!=NULL) {
-							echo "<td><img src=\"../Images/" . $row['nomeImg'] . "\" height=\"100\"></td>";
+					if ($row['image']!=NULL) {
+							echo "<td><img src=\"" . DIR_IMG . "/" . $row['image'] . "\" height=\"100\"></td>";
 					} else {
 						echo "<td> nessuna immagine </td>";
 					}

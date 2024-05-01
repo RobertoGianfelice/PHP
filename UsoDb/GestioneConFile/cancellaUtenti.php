@@ -36,7 +36,7 @@
 	mysqli_close ($link);
 
 ?>
-<a href="gestioneUtentiBase.html">Torna alla pagina home</a>
+<a href="gestioneUtenti.html">Torna alla pagina home</a>
 
 </body>
 </html>
