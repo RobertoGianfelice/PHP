@@ -10,10 +10,10 @@
     <?php
         $cookie_name="utente";
         $cookie_value=$$_COOKIE[$cookie_name];
-        setcookie($cookie_name,$cookie_value,time()-180,"/");
+        setcookie($cookie_name,$cookie_value,time()-30,"/");
     ?>
     <h3>Accesso Teminato</h3>
-    <a href=\"Registrati.html\">Identificati</a>
+    <a href="Registrati.html">Identificati</a>
     
 </body>
 </html>

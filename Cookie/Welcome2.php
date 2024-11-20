@@ -31,7 +31,9 @@
             echo "<a href=\"Registrati.html\">Identificati</a>";
         } else {
             echo "<h3 id='secondi' >30</h3>";
-            echo "Ciao $_COOKIE[$cookie_name]";
+            echo "Ciao $_COOKIE[$cookie_name] " . "-" . $_COOKIE["counter"] . "<br>";
+            setcookie("counter",$_COOKIE["counter"]+1,time()+30,"/");
+
             echo "<a href=\"Logout.php\">Sganciati</a>";
         }
     ?>
