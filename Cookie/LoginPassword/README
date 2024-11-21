@@ -1,0 +1,2 @@
+Questo esempio registra unutente con login e password tramite registrazione.html e registrazione.php
+il file Welcome pho verifica che gli eventuali cookie presenti consentano di effettuare il login al servizio o meno
