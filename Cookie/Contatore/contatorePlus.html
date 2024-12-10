@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatore+</title>
+</head>
+<body>
+    <h1>Contatore algebrico</h1>
+    <form action="contatorePlus.php" method="post">
+        <label for="valore">Inserisci il nuovo valore</label>
+        <input type="number" name="valore" id=""><br>
+        <label for="add">+</label>
+
+        <input type="radio" name="operazione" id="add" value="+">
+        <label for="sub">-</label>
+
+        <input type="radio" name="operazione" id="sub" value="-"><br>
+        <label for="mul">*</label>
+
+        <input type="radio" name="operazione" id="mul" value="*">
+        <label for="div">/</label>
+
+        <input type="radio" name="operazione" id="div" value="/"><br>
+
+        <input type="submit" value="Aggiorna" name="Bottone">
+        <input type="submit" value="Azzera" name="Bottone">
+    </form>  
+</body>
+</html>

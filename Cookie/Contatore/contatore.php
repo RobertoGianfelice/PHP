@@ -24,12 +24,10 @@
     $contatore_aggiornato=$cookie_contatore+$incremento;
     switch ($_REQUEST["Bottone"]) {
         case "Aggiungi":
-            echo"uno";
             setcookie("contatore", $contatore_aggiornato, time() + 60, "/");
             echo "<h2>Contatore vale " . $contatore_aggiornato . "</h2>";
         break;
         case "Azzera":
-            echo"due";
             setcookie("contatore", 0, time() + 60, "/");
             echo "<h2>Contatore azzerato</h2>";
         break;
