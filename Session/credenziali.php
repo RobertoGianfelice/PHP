@@ -16,11 +16,11 @@
             case "Hermione":
             case "Ron":
             case "Draco":
-              echo "Utente conosciuto";
+              echo "Utente conosciuto ad Hogwart";
               echo "<a href=\"" . $_SESSION["nome"] . ".html\">Vai alla pagina di " . $_SESSION["nome"] ."</a>";
               break;
             default:
-              echo "Utente sconosciuto<br>";
+              echo "Utente sconosciuto: probabile babbano<br>";
               echo "<a href=\"input.html\"> Riprova </a>";
             }
         } else{
