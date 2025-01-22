@@ -1,0 +1,3 @@
+Questo esempio gestisce u unico cookei valido per 30 secondi.
+Il valore del cookie viene acquisito da Registrati.html e memorizzato da storeId.php con una scadenza di 30 secondi.
+Viene ceato ancheun cookie con un contatore che conterà il numero di volte che la pagina Welcome2.php è stata caricata con il cookie valido
