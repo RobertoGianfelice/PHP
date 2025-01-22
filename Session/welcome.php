@@ -3,14 +3,17 @@
 ?>
 <html>
   <body>
-    <h1>Welcome <?php echo $_GET["name"]; ?><br> </h1>
-    <h1>Your email address is: <?php echo $_GET["email"]; ?></h1>
+    <h1>Welcome <?php echo $_REQUEST["name"]; ?><br> </h1>
+    <h1>Your email address is: <?php echo $_REQUEST["email"]; ?></h1>
 
     <?php
-      $_SESSION["nome"]=  $_GET["name"];
-      $_SESSION["email"]= $_GET["email"];
+      $_SESSION["nome"]=  $_REQUEST["name"];
+      $_SESSION["email"]= $_REQUEST["email"];
     ?>
     <br>
-    <a href="credenziali.php">Verifica le credenziali</a>
+    <?php
+      $url="credenziali.php";
+      echo "<a href=\"" . $url . "\">Verifica le credenziali</a>";
+    ?>
   </body>
 </html>

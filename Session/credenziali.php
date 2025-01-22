@@ -15,6 +15,7 @@
             case "Harry":
             case "Hermione":
             case "Ron":
+            case "Draco":
               echo "Utente conosciuto";
               echo "<a href=\"" . $_SESSION["nome"] . ".html\">Vai alla pagina di " . $_SESSION["nome"] ."</a>";
               break;
