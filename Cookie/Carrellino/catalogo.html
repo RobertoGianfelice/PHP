@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+</head>
+<script>
+    function aggiornaCarrello() {
+        let prezzo = parseInt(document.getElementById("articolo").value);
+        let quantity = parseInt(document.getElementById("pezzi").value);
+        document.getElementById("carrello").innerHTML = "Carrello: " + prezzo*quantity;
+    }
+</script>
+
+<body>
+    <h1>Cosa desideri acquistare?</h1>
+    <form action="acquista.php" method="post">
+        <select name="articolo" id="articolo" onchange="aggiornaCarrello()">
+            <option value="10">Torta Millefoglie - 10€</option>
+            <option value="20">Torta Meraviglia - 20€</option>
+            <option value="30">Torta 1000 frutti - 30€</option>
+            <option value="80">Tiramisù Regale - 80€</option>
+        </select>
+        <label for="pezzi">Quantità</label>
+        <input type="number" 
+                name="quantity" 
+                id="pezzi" 
+                min="1" max="5"
+                value="1" onchange="aggiornaCarrello()">
+        <input type="submit" value="Acquista">
+    </form>
+    <h3 id="carrello"></h3>
+
+</body>
+
+</html>
