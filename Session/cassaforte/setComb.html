@@ -1,11 +1,20 @@
 <!DOCTYPE HTML>
 <html>
+
 <body>
 
-<form action="start.php" method="get">
-    Rotore1: <input type="number" name="rot1" min="0" max="9"><br>
-    Rotore2: <input type="number" name="rot2" min="0" max="9"><br>
-    Rotore3: <input type="number" name="rot3" min="0" max="9"><br>
-    <input type="submit">
-</form>
+    <h1>Imposta la combinazione della tua cassaforte</h1>
+    <cite>Benvenuto nella nostra cassaforte: qui potrai conservare il tuo testo prezioso impostando la combinazione segreta</cite>
+    <br><br>
+    <form action="start.php" method="POST">
+        <label for="tesoro">Inserisci qui la tua frase preziosa</label>
+        <input type="text" id="tesoro" name="tesoro"><br><br>
+        <label for="rot1">Rotore1</label>
+        <input type="number" id="rot1" name="rot1" min="0" max="9"><br>
+        <label for="rot2">Rotore2</label>
+        <input type="number" id="rot2" name="rot2" min="0" max="9"><br>
+        <label for="rot3">Rotore3</label>
+        <input type="number" id="rot3" name="rot3" min="0" max="9"><br>
+        <input type="submit">
+    </form>
 </body>
