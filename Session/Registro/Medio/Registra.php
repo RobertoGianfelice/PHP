@@ -5,9 +5,9 @@
   <body>
     <?php
       //Acquisico i dati parametri di input
-      $nome=$_GET["nome"];
-      $materia = $_GET["materia"];
-      $voto = $_GET["voto"];
+      $nome=$_POST["nome"];
+      $materia = $_POST["materia"];
+      $voto = $_POST["voto"];
 
       $_SESSION[$nome][$materia]=$voto;
       echo "<br>Voto Inserito nel registro di ". $nome . "<br>";

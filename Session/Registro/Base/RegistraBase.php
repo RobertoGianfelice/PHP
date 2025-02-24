@@ -5,12 +5,12 @@
   <body>
     <?php
       //Acquisico i dati parametri di input
-      if (!isset($_GET["nome"]) || $_GET["nome"]=="" ||
-          !isset($_GET["voto"]) || $_GET["voto"]=="" ) {
+      if (!isset($_POST["nome"]) || $_POST["nome"]=="" ||
+          !isset($_POST["voto"]) || $_POST["voto"]=="" ) {
         echo "<h2>Dati di input mancanti </h2>";
       } else {
-        $nome=$_GET["nome"];
-        $voto = $_GET["voto"];
+        $nome= $_POST["nome"];
+        $voto = $_POST["voto"];
 
         if (!isset($_SESSION[$nome])) {
           // Il campo $nome non esiste all'interno di voti: lo creo

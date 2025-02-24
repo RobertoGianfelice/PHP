@@ -5,10 +5,10 @@
   <body>
     <?php
       //Acquisico i dati parametri di input
-      $classe=$_GET["classe"];
-      $nome=$_GET["nome"];
-      $materia = $_GET["materia"];
-      $voto = $_GET["voto"];
+      $classe=$_POST["classe"];
+      $nome=$_POST["nome"];
+      $materia = $_POST["materia"];
+      $voto = $_POST["voto"];
 
 
       if (!isset($_SESSION[$classe])) {

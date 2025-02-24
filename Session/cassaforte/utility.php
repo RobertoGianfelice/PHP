@@ -1,7 +1,7 @@
 <?php
 function stampaArray($nomeVettore, $daStampare)
 {
-    echo "<h3>$nomeVettore</h3>";
+    echo "<h3>--- $nomeVettore</h3>";
     if (count($daStampare) > 0) {
         echo "<table border='1'>";
         echo "<tr><th>Chiave</th><th>Valore</th></tr>";
