@@ -9,7 +9,7 @@ session_start();
   <title>Stampa Registro</title>
 </head>
 
-<body>
+<body style="background-color: lightblue;">
   <?php
   if (count($_SESSION) > 0) {
     // Il registro voti esiste: lo stampo
@@ -37,7 +37,7 @@ session_start();
       echo "</table>";
     }
   } else {
-    echo "Il registro è vuoto";
+    echo "<h2>Il registro è vuoto</h2>";
   }
 
   ?>

@@ -1,11 +1,13 @@
 <?php
-  session_start();
+session_start();
 ?>
 <html>
-  <body>
-    <?php
-      session_unset();
-      header("location: RegistroVotiBase.html");
-    ?>
-  </body>
+
+<body style="background-color: lightcoral;">
+  <?php
+  session_unset();
+  header("location: RegistroVotiBase.html");
+  ?>
+</body>
+
 </html>
