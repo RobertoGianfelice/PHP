@@ -1,55 +1,48 @@
-<?php   //dati accesso al db
-	//Apro la sessione e...
-	session_start();
-	include "vars.php";
-?>
-<html>
-<head><title>Registrazione dati</title></head>
-<body>
-<H1> Esecuzione del file registrazione</H1><BR>
 <?php
-if (isset($_POST["nome"])){
-
-	// recupero i dati
-	$nome=$_POST["nome"];
-	$cognome=$_POST["cognome"];
-	$email=$_POST["email"];
-	$nick=$_POST["nick_name"];
-	$passw=$_POST["password"];
-
-	//Recupero username e password dal form
-	$username=$_POST["nome"];
-	$password=md5($_POST["password"]);
-
-	echo "$nome $cognome $email $nick $passw";
-
-	//Salvo i dati...
-	$_SESSION["username"]=$username;
-	$_SESSION["password"]=$password;
-
-	$link=mysqli_connect(
-	    $db_host,
-	    $db_login,
-	    $db_pass,
-	    $database
-	) or die('Attenzione: Error connecting to database');
-
-	$dati= " INSERT INTO utenti (nome, cognome, email, nick_name, password) 
-	                    VALUES (
-					    '$nome',
-					    '$cognome',
-					    '$email',
-					    '$nick',
-					    '$password'
-					    );";
-	mysqli_query ($link, $dati)
-	or die ("Non riesco ad eseguire la query $dati");
-	echo " <CENTER><H1>$nome $cognome <BR><H3>I Dati sono stati archiviati con successo nel DataBase </CENTER> ";
-	mysqli_close ($link);
-}
+    include "vars.php";
 ?>
-<br>
-<a href="gestioneUtentiBase.html">Torna alla pagina home</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restrazione utente in DB</title>
+</head>
+<body>
+    <h1>Esecuzione registrazione su DB</h1>
+    <?php
+        if (isset($_POST["name"])){
+            $nome=$_POST["name"];
+            $cognome=$_POST["cognome"];
+            $email=$_POST["email"];
+            $nick=$_POST["nick"];
+            $passwd=md5($_POST["passwd"]);
 
+            $link=mysqli_connect(
+                $db_host,
+                $db_login,
+                $db_pass,
+                $db_name
+            ) or die ("Attenzione: problemi connessione db");
+
+            $dati="INSERT INTO utenti (id, nome, cognome, email, nick, passwd)
+                   VALUES (NULL,
+                            '$nome',
+                            '$cognome',
+                            '$email',
+                            '$nick',
+                            '$passwd'
+                           );";
+            mysqli_query($link,$dati)
+            or die ("Problemi, Problemi Problemi: $dati");
+            echo "Utente registrato";
+            mysqli_close($link);
+        } else {
+            echo "Mancano i parametri di input";
+        }
+
+    ?>
+    <h2><a href="menu.html">HOME</a></h2>
+    
 </body>
 </html>

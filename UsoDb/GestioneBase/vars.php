@@ -1,7 +1,6 @@
 <?php
-	//dati accesso al db
-        $db_host= "localhost";
-        $db_login= "prof";
-        $db_pass= "prof";
-        $database= "Quinti";
+    $db_host="localhost";
+    $db_login="roberto";
+    $db_pass="roberto";
+    $db_name="EsempioDB";
 ?>
