@@ -13,18 +13,21 @@ include "vars.php";
 <body>
     <h1>Utenti Presenti nel DB</h1>
     <?php
-        $link = mysqli_connect(
-            $db_host,
-            $db_login,
-            $db_pass,
-            $db_name
-        ) or die("Attenzione: problemi connessione db");
+        try {
+            $link= new mysqli($db_host,$db_login,
+                            $db_pass,$db_name);
+        } catch(mysqli_sql_exception $e) {
+            die ("Problemi!!! Problemi!!! " . $e->getMessage());
+        }
         
         $dati="SELECT nome, cognome
                from utenti";
 
-        $risultato=mysqli_query($link,$dati)
-        or die ("Problemi nell'esecuzione di $dati");
+        try {
+            $risultato=mysqli_query($link,$dati);
+        } catch (mysqli_sql_exception $e) {
+            die ("Problemi!!! Problemi!!! Problemi: ". $e->getMessage());
+        } 
 
         $numeriRighe=mysqli_num_rows($risultato);
 

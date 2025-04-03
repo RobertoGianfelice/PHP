@@ -1,53 +1,27 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-<title>Gestione Utenti OO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserimento nuovo utente OO</title>
 </head>
-
 <body>
-<center><B>REGISTRAZIONE OO</B></center>
-<form  method="POST" action="registra.php" name="Form1">
-	<p><b>Nome</b>
-		<input type="text" name="nome" cols="30"       rows="1" size="26">
-	<b>Cognome</b>
-		<input type="text" name="cognome" cols="30" rows="1" size="28"> </p>
-	<p><b>e-mail</b>
-		<input type="text" name="email" cols="30" rows="1" size="28">
-	<b>nick name</b>
-		<input type="text" name="nick_name" cols="30" rows="1" size="28"> </p>
-	<b>password</b>
-		<input type="password" name="password" cols="30"       rows="1" size="26"></p>
-      <hr>
-      <input type="submit"
-      value="Invia" name="B1">
-      <input type="reset" value="Cancella" name="B2"></p>
-</form>
-
-
-<center><B>CANCELLAZIONE OO</B></center>
-<form  method="POST" action="cancellaUtenti.php" name="Form1">
-	<p>
-	<b>Cognome</b>
-		<input type="text" name="cognome" cols="30" rows="1" size="28"> </p>
-      <hr>
-      <input type="submit"
-      value="Invia" name="B1">
-      <input type="reset" value="Cancella" name="B2"></p>
-</form>
-
-<center><B>TEST LOGIN OO</B></center>
-<form  method="POST" action="login.php" name="Form1">
-        <p><b>e-mail</b>
-                <input type="text" name="email" cols="30" rows="1" size="28">
-        <b>password</b>
-                <input type="password" name="password" cols="30"       rows="1" size="26"></p>
-      <hr>
-      <input type="submit"
-      value="Invia" name="B1">
-      <input type="reset" value="Cancella" name="B2"></p>
-</form>
-
-<a href="elencoUtentiSemplice.php">Elenco Utenti OO</a>
+    <center><b>Registrazione Utente OO</b></center>
+    <form action="registra.php" method="post">
+        <label for="name">Nome: </label>
+        <input type="text" name="nome" id="name"><br>
+        <label for="cognome">Cognome: </label>
+        <input type="text" name="cognome" id="cognome"><br>
+        <label for="email">Email: </label>
+        <input type="text" name="email" id="email"><br>
+        <label for="nick">Nick Name: </label>
+        <input type="text" name="nick" id="nick"><br>
+        <label for="passwd">Password: </label>
+        <input type="password" name="passwd" id="passwd"><br>
+        <input type="submit" value="registra">
+        
+    </form>
+    <a href="menu.html">HOME</a>
+    
 </body>
 </html>

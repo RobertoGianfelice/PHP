@@ -4,29 +4,28 @@
 <html>
 <head><title>Registrazione dati</title></head>
 <body>
-<H1> Esecuzione del file registrazione</H1><BR>
+<H1> Esecuzione registrazione su DB OO</H1><BR>
 <?php
 if (isset($_POST["nome"])){
-
 	// recupero i dati
 	$nome=$_POST["nome"];
 	$cognome=$_POST["cognome"];
 	$email=$_POST["email"];
-	$nick=$_POST["nick_name"];
-	$passw=$_POST["password"];
+	$nick=$_POST["nick"];
+	$passw=$_POST["passwd"];
 
 	//Recupero username e password dal form
 	$username=$_POST["nome"];
 	$password=md5($_POST["password"]);
 
-	echo "$nome $cognome $email $nick $passw";
-	$conn = new mysqli($db_host, $db_login, $db_pass, $database);
+	try {
+	$conn = new mysqli($db_host, $db_login, $db_pass, $db_name);
+	} catch (mysqli_sql_exception $e) {
+                die ("Problemi!!! Problemi!!! " . $e->getMessage());
+    }
 	// Check connection
-	if ($conn->connect_error ) {
-		die ("PRoblemi di connessione a $db_host " . $conn->connect_error);
-	}
 
-	$dati= " INSERT INTO utenti (nome, cognome, email, nick_name, password) 
+	$dati= " INSERT INTO utenti (nome, cognome, email, nick, passwd) 
 	                    VALUES (
 					    '$nome',
 					    '$cognome',
@@ -34,16 +33,17 @@ if (isset($_POST["nome"])){
 					    '$nick',
 					    '$password'
 					    );";
-	$rs =  $conn->query ($dati);
-	if ($conn->connect_error) {
-		die ("Problemi nell'eseguire la quesry $dati " . $conn->connect_error);
-	}
+	try {
+		$rs =  $conn->query ($dati);
+	} catch (mysqli_sql_exception $e) {
+                die ("Problemi!!! Problemi!!! " . $e->getMessage());
+	} 	
 	echo " <CENTER><H1>$nome $cognome <BR><H3>I Dati sono stati archiviati con successo nel DataBase </CENTER> ";
 	$conn->close();
 }
 ?>
 <br>
-<a href="gestioneUtentiBase.html">Torna alla pagina home</a>
+<a href="menu.html">Torna alla pagina home</a>
 
 </body>
 </html>

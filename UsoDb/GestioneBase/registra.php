@@ -18,12 +18,12 @@
             $nick=$_POST["nick"];
             $passwd=md5($_POST["passwd"]);
 
-            $link=mysqli_connect(
-                $db_host,
-                $db_login,
-                $db_pass,
-                $db_name
-            ) or die ("Attenzione: problemi connessione db");
+            try {
+                $link= new mysqli($db_host,$db_login,
+                                $db_pass,$db_name);
+            } catch(mysqli_sql_exception $e) {
+                die ("Problemi!!! Problemi!!! " . $e->getMessage());
+            }
 
             $dati="INSERT INTO utenti (id, nome, cognome, email, nick, passwd)
                    VALUES (NULL,
@@ -33,8 +33,12 @@
                             '$nick',
                             '$passwd'
                            );";
-            mysqli_query($link,$dati)
-            or die ("Problemi, Problemi Problemi: $dati");
+                           
+            try {
+                mysqli_query($link,$dati);
+            } catch (mysqli_sql_exception $e) { 
+                 die ("Problemi, Problemi Problemi: " . $e->getMessage());
+            } 
             echo "Utente registrato";
             mysqli_close($link);
         } else {
