@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserimento nuovo utente</title>
+</head>
+<body>
+    <center><b>Registrazione candidato</b></center>
+    <form action="registra.php" method="post">
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome"><br>
+        <label for="cognome">Cognome: </label>
+        <input type="text" name="cognome" id="cognome"><br>
+        <label for="credito">Credito: </label>
+        <input type="number" name="credito" id="credito" min="24" max="40"><br>
+        <label for="primaProva">Prima Prova: </label>
+        <input type="number" name="primaProva" id="primaProva" min="0" max="20"><br>
+        <label for="secondaProva">Seconda Prova: </label>
+        <input type="number" name="secondaProva" id="secondaProva" min="0" max="20"><br>
+        <label for="orale">Orale: </label>
+        <input type="number" name="orale" id="orale" min="0" max="20"><br>
+
+
+        <input type="submit" value="registra">
+        
+    </form>
+    <a href="menu.html">HOME</a>
+    
+</body>
+</html>
