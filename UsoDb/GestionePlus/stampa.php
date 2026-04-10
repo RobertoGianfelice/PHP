@@ -8,23 +8,41 @@ include "vars.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stampa Utenti nel DB</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            font-size: 300%;
+        }
+        table,th,td {
+            border-collapse: collapse;
+        }
+    </style>
+
 </head>
 
 <body>
     <h1>Utenti Presenti nel DB</h1>
     <?php
-    $link = mysqli_connect(
-        $db_host,
-        $db_login,
-        $db_pass,
-        $db_name
-    ) or die("Attenzione: problemi connessione db");
 
-    $dati = "SELECT nome, cognome, avatar
-               from utenti";
+        try {
+            $link=mysqli_connect(
+                                $db_host,
+                                $db_login,
+                                $db_pass,
+                                $db_name
+                            );
+        } catch(mysqli_sql_exception $e) {
+            die ("Problemi!!! Problemi!!! " . $e->getMessage());
+        }
 
-    $risultato = mysqli_query($link, $dati)
-        or die("Problemi nell'esecuzione di $dati");
+        $dati = "SELECT nome, cognome, avatar
+                from utentiIMG";
+
+        try {
+            $risultato = mysqli_query($link, $dati);
+        } catch(mysqli_sql_exception $e) {
+            die ("Problemi!!! Problemi!!! " . $e->getMessage());
+        }
 
     $numeriRighe = mysqli_num_rows($risultato);
 
