@@ -6,6 +6,7 @@ include "vars.php";
 # e se tutto corretto salvare il file nella directory del server
 function checkFileAndSave($fileName)
 {
+    print_r ($_FILES["$fileName"]);
     # verifica sul tipo del file e dimensione massima
     if ((($_FILES["$fileName"]["type"] == "image/gif")
             || ($_FILES["$fileName"]["type"] == "image/jpeg")
@@ -31,7 +32,7 @@ function checkFileAndSave($fileName)
                     $_FILES["$fileName"]["tmp_name"],
                     DIR_IMG . "/" . $_FILES["$fileName"]["name"]
                 );
-                echo "New Stored in: " . DIR_IMG . "/" . $_FILES["$fileName"]["name"];
+                echo "New Stored in: " . DIR_IMG . "/" . $_FILES["$fileName"]["name"] . "<br>";
             }
         }
     } else {
@@ -46,6 +47,13 @@ function checkFileAndSave($fileName)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restrazione utente in DB</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            font-size: 300%;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -59,21 +67,32 @@ function checkFileAndSave($fileName)
         $passwd = md5($_POST["passwd"]);
 
 
-        if (isset($_FILES["avatar"])) {
+        if (isset($_FILES["avatar"]) && $_FILES["avatar"]["name"]!="") {
             checkFileAndSave("avatar");
             $nomeImg = $_FILES["avatar"]["name"];
         } else {
-            $nomeImg = "NULL";
+            $nomeImg = "";
         }
 
-        $link = mysqli_connect(
-            $db_host,
-            $db_login,
-            $db_pass,
-            $db_name
-        ) or die("Attenzione: problemi connessione db");
+        try {
+            $link=mysqli_connect(
+                                $db_host,
+                                $db_login,
+                                $db_pass,
+                                $db_name
+                            );
+        } catch(mysqli_sql_exception $e) {
+                die ("Problemi!!! Problemi!!! " . $e->getMessage());
+        }
 
-        $dati = "INSERT INTO utenti (id, nome, cognome, email, nick, passwd, avatar)
+        $dati = "INSERT INTO utentiIMG (
+                        id, 
+                        nome, 
+                        cognome, 
+                        email, 
+                        nick, 
+                        passwd, 
+                        avatar)
                    VALUES (NULL,
                             '$nome',
                             '$cognome',
@@ -83,9 +102,12 @@ function checkFileAndSave($fileName)
                             '$nomeImg'
                            );";
         echo "$dati";
-        mysqli_query($link, $dati)
-            or die("Problemi, Problemi Problemi: $dati");
-        echo "Utente registrato";
+        try {
+            mysqli_query($link, $dati);
+        }catch (mysqli_sql_exception $e) {
+                die ("Problemi!!! Problemi!!! " . $e->getMessage());
+        }
+        echo "<h2>Utente registrato</h2>";
         mysqli_close($link);
     } else {
         echo "Mancano i parametri di input";
