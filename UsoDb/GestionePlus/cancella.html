@@ -4,14 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cancella Utente</title>
+    <style>
+        .campo-form {
+            margin-bottom: 15px; /* Crea spazio sotto ogni campo */
+        }
+        body {
+            background-color: antiquewhite;
+            font-size: 300%;
+        }
+        input {
+            font-size: 100%;
+        }
+    </style>
 </head>
 <body>
     <h1>Cancella Utente per Cognome</h1>
     <form action="cancella.php" method="post">
-        <label for="cognome">Cognome: </label>
-        <input type="text" name="cognome" id="cognome"><br>
+        <div class="campo-form">
+            <label for="cognome">Cognome: </label>
+            <input type="text" name="cognome" id="cognome"><br>
+        </div>
         <input type="submit" value="Cancella Utente">
-
     </form>
     <a href="menu.html">HOME</a>
 </body>
